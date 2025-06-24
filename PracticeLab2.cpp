@@ -94,15 +94,15 @@ public:
 
 int main() {
     std::vector<std::thread> threads;
-
+    int v = 21;
     // Створюємо 3 мурах-робочих
-    threads.emplace_back(WorkerAnt({5, 5}, 0.5, 1));
-    threads.emplace_back(WorkerAnt({-6, 4}, 0.4, 2));
-    threads.emplace_back(WorkerAnt({3, -7}, 0.6, 3));
+    threads.emplace_back(WorkerAnt({5, 5}, v, 1));
+    threads.emplace_back(WorkerAnt({-6, 4}, v, 2));
+    threads.emplace_back(WorkerAnt({3, -7}, v, 3));
 
     // Створюємо 2 мурах-воїнів
-    threads.emplace_back(WarriorAnt(5, 0.3, 1));
-    threads.emplace_back(WarriorAnt(7, 0.4, 2));
+    threads.emplace_back(WarriorAnt(5, v, 1));
+    threads.emplace_back(WarriorAnt(7, v, 2));
 
     for (auto& t : threads)
         t.join();
